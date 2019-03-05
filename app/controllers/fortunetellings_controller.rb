@@ -7,5 +7,6 @@ class FortunetellingsController < ApplicationController
     @day = @birthday[6, 2].to_i
     @constellation = determine_constellation(@month, @day)
     @age = calculate_age(@birthday)
+    @fortunes = %w(大吉 中吉 吉 小吉 凶 大凶)
   end
 end
