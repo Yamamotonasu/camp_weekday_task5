@@ -1,5 +1,5 @@
 module FortunetellingsHelper
-    # 生まれた月と日を渡すと星座を返す
+  # 生まれた月と日を渡すと星座を返す
   def determine_constellation(month, day)
     if month == 1 && day.between?(20, 31) || month == 2 && day.between?(1, 18)
       '水瓶'
@@ -31,5 +31,15 @@ module FortunetellingsHelper
   # yyyymmdd形式で生年月日を渡すと年齢を返す
   def calculate_age(birthday)
     (Date.today.strftime("%Y%m%d").to_i - birthday.to_i) / 10000
+  end
+
+  # yyyymmdd形式で有効な生年月日ならtrueを返す
+  def valid_date?(birthday)
+    Date.valid_date?(@year, @month, @day) && @birthday.length == 8 && Date.today.strftime("%Y%m%d").to_i >= @birthday.to_i
+  end
+
+  # 今日が誕生日ならtrueを返す
+  def is_birthday?(birthday)
+    Date.today.strftime("%m%d").to_i == birthday[4, 4].to_i
   end
 end
