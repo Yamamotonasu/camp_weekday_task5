@@ -6,5 +6,6 @@ class FortunetellingsController < ApplicationController
     @month = @birthday[4, 2].to_i
     @day = @birthday[6, 2].to_i
     @constellation = determine_constellation(@month, @day)
+    @age = calculate_age(@birthday)
   end
 end

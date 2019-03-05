@@ -27,4 +27,9 @@ module FortunetellingsHelper
       '山羊'
     end
   end
+
+  # yyyymmdd形式で生年月日を渡すと年齢を返す
+  def calculate_age(birthday)
+    (Date.today.strftime("%Y%m%d").to_i - birthday.to_i) / 10000
+  end
 end
