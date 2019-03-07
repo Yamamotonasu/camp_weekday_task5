@@ -1,9 +1,10 @@
-<% if valid_date?(@birthday) %>
-  <p>あなたの誕生日は<%= @year %>年<%= @month %>月<%= @day %>日です。
-  <%# 今日の日付をmmdd形式で取り出し、パラメータで取得した値の下4桁と比較 %>
-  <% if is_birthday?(@birthday) %>
-    今日があなたの誕生日です。</p>
-  <% end %>
+<% if valid_birthday?(@birthday) %>
+  <p>
+    あなたの誕生日は<%= @year %>年<%= @month %>月<%= @day %>日です。
+    <% if is_birthday?(@birthday) %>
+      今日があなたの誕生日です。
+    <% end %>
+  </p>
   <p>あなたの星座は<%= @constellation %>座です。</p>
   <p>あなたは<%= @age %>歳です。</p>
   <p>今日のあなたの運勢は<%= @fortunes %>です。</p>
