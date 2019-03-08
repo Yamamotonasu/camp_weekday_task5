@@ -38,7 +38,7 @@ module FortunetellingsHelper
   # yyyymmdd形式で有効な生年月日ならtrueを返す
   # 存在する日付であること、入力された値が8桁である事、未来の日付は無効であること
   def valid_birthday?(birthday)
-    Date.valid_date?(@year.to_i, @month.to_i, @day.to_i) && birthday.length == 8 && Date.today.strftime("%Y%m%d").to_i >= birthday.to_i
+    Date.valid_date?(birthday[0,4].to_i, birthday[4,2].to_i, birthday[6, 2].to_i) && birthday.length == 8 && Date.today.strftime("%Y%m%d").to_i >= birthday.to_i
   end
 
   # 今日が誕生日ならtrueを返す
