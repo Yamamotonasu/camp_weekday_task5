@@ -1,0 +1,13 @@
+<% if valid_birthday?(@birthday) %>
+  <p>
+    あなたの誕生日は<%= @year %>年<%= @month %>月<%= @day %>日です。
+    <% if is_birthday?(@birthday) %>
+      今日があなたの誕生日です。
+    <% end %>
+  </p>
+  <p>あなたの星座は<%= @constellation %>座です。</p>
+  <p>あなたは<%= @age %>歳です。</p>
+  <p>今日のあなたの運勢は<%= @fortunes %>です。</p>
+<% else %>
+  <p>正しい生年月日を入力してください。</p>
+<% end %>
